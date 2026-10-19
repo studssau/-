@@ -6,3 +6,9 @@ void initCompass() {
   compass.init();
   Serial.println("Компас инициализирован");
 }
+void initCompass() {
+ compass.read();
+varX = compass.getX();
+  varY = compass.getY();
+    varZ = compass.getZ();
+} 
