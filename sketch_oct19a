@@ -1,20 +1,34 @@
 #include "compass.h"
 #include "gps.h"
-void setup() {
-  Serial.begin(9600); // Запуск последовательного порта
-  initCompass(); // Функция инициализации компаса
-  initGps(); //Функция инициализации GPS
-}
-void loop() {
-  int x, y, z; // Переменные для хранения данных компаса типа int (целое число)
-  float sh, d; // Переменные для хранения данных GPS типа float (число с плавающей точкой)
-}
-readCompass(x, y, z); // Имя функции и аргументы необходимо согласовать с ответственными за написание библиотеки компаса
-readGps(sh, d); // Имя функции и аргументы необходимо согласовать с ответственными за написание библиотеки GPS
-Serial.print("Переменная");
-delay(1000); // Задержка 1000 милисекунд (можно поставить другую)
-
 #include "LoRa_E220.h"
-LoRa_E220 e220ttl(8, 9, 5, 7, 6); //Объявление объекты радио-модуля
-e220ttl.begin();
-e220ttl.sendMessage("Переменная");
+
+LoRa_E220 e220ttl(8, 9, 5, 7, 6);
+
+void setup() {
+  Serial.begin(9600);
+  initCompass();
+  initGps();
+  e220ttl.begin();
+  }
+
+void loop() {
+  int x, y, z;
+  float sh, d;
+
+readCompass(x, y, z);
+readGps(sh, d);
+  Serial.print(x);
+  Serial.print(",");
+  Serial.print(y); 
+  Serial.print(",");
+  Serial.print(z);
+  Serial.print(",");
+  Serial.print(sh); 
+  Serial.print(",");
+  Serial.print(d);
+  Serial.println();
+
+  e220ttl.sendMessage(String(x) + "," + String(y) + "," + String(z) + "," + String(sh) + "," + String(d) + "\n\r");
+
+delay(1000);
+}
