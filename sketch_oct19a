@@ -28,7 +28,7 @@ readGps(sh, d);
   Serial.print(d);
   Serial.println();
 
-  e220ttl.sendMessage(String(x) + "," + String(y) + "," + String(z) + "," + String(sh) + "," + String(d) + "\n\r");
+  //e220ttl.sendMessage(String(x) + "," + String(y) + "," + String(z) + "," + String(sh) + "," + String(d) + "\n\r");
 
 delay(1000);
 }
