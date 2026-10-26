@@ -9,7 +9,7 @@ void initGps() {
   gpsSerial.begin(9600);
   Serial.println("GPS инициализирован");
 }
-void readGPS( float &sh, float &d) {
+void readGps( float &sh, float &d) {
   while (gpsSerial.available() > 0) {
     gps.encode(gpsSerial.read());
     }
