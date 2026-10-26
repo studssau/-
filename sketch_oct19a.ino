@@ -17,7 +17,7 @@ void loop() {
 
 readCompass(x, y, z);
 readGps(sh, d);
-  Serial.print(x);
+  /*Serial.print(x);
   Serial.print(",");
   Serial.print(y); 
   Serial.print(",");
@@ -26,7 +26,7 @@ readGps(sh, d);
   Serial.print(sh); 
   Serial.print(",");
   Serial.print(d);
-  Serial.println();
+  Serial.println();*/
 
    //e220ttl.sendMessage(String(x) + "," + String(y) + "," + String(z) + "," + String(sh) + "," + String(d) + "\n\r");
 
@@ -38,5 +38,6 @@ f (e220ttl.available() > 1) { //Ждем больше одного байта
     
     String Message = response.data; //Запись в переменную Message типа String (строка)
 
+    Serial.print(Message);
  }
 }
