@@ -8,7 +8,7 @@ void initCompass() {
 }
 void readCompass(int &x, int &y, int &z ) {
  compass.read();
-X = compass.getX();
-Y = compass.getY();
-Z = compass.getZ();
+  x = compass.getx();
+    y = compass.gety();
+      z = compass.getz();
 } 
