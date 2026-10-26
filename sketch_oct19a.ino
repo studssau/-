@@ -28,15 +28,15 @@ readGps(sh, d);
   Serial.print(d);
   Serial.println();
 
-   e220ttl.sendMessage(String(x) + "," + String(y) + "," + String(z) + "," + String(sh) + "," + String(d) + "\n\r");
+   //e220ttl.sendMessage(String(x) + "," + String(y) + "," + String(z) + "," + String(sh) + "," + String(d) + "\n\r");
 
 delay(1000);
+
+f (e220ttl.available() > 1) { //Ждем больше одного байта
+    
+    ResponseContainer response = e220ttl.receiveMessage(); //Получение сообщения с радиомодуля
+    
+    String Message = response.data; //Запись в переменную Message типа String (строка)
+
+ }
 }
-
-//f (e220ttl.available() > 1) { //Ждем больше одного байта
-    
-//    ResponseContainer response = e220ttl.receiveMessage(); //Получение сообщения с радиомодуля
-    
-//    String Message = response.data; //Запись в переменную Message типа String (строка)
-
-//  }
