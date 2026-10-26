@@ -15,5 +15,5 @@ void readGps( float &sh, float &d) {
     }
   
 sh = gps.location.lat();
-d = gps.location.lng() 
+d = gps.location.lng();
 }
