@@ -32,3 +32,11 @@ readGps(sh, d);
 
 delay(1000);
 }
+
+f (e220ttl.available() > 1) { //Ждем больше одного байта
+    
+    ResponseContainer response = e220ttl.receiveMessage(); //Получение сообщения с радиомодуля
+    
+    String Message = response.data; //Запись в переменную Message типа String (строка)
+
+  }
